@@ -1,0 +1,49 @@
+#include<stdio.h>
+void S(int a[], int sz)
+{
+    while (sz--)
+    {
+        scanf("%d", &a[9 - sz]);
+    }
+}
+void Px(int a[], int sz)
+{
+    int j, k = 0;
+    for (j = 1; j < sz; j++)
+    {
+        if(a[k] > a[j])
+        {
+            k = j;
+        }
+    }
+    int tmp = a[0];
+    a[0] = a[k];
+    a[k] = tmp;
+    k = sz-1;
+    for (j = 0; j < sz - 1; j++)
+    {
+        if (a[j] > a[k])
+        {
+            k = j;
+        }
+    }
+    tmp = a[sz-1];
+    a[sz-1] = a[k];
+    a[k] = tmp;
+}
+void Pf(int a[], int sz)
+{
+    int i;
+    for (i = 0; i < sz; i++)
+    {
+        printf("%d ", a[i]);
+    }
+}
+int main()
+{
+    int a[10] = { 0 };
+    S(a, 10);
+    Px(a, 10);
+    Pf(a, 10);
+    return 0;
+}
